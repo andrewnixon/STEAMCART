@@ -1,13 +1,10 @@
 #! /usr/bin/python3
 import argparse
 
-import sys
-import os
 from pathlib import Path
+from input import ip_parse
 
 def setup():
-    sys.path.append(os.path.abspath('../src/'))
-
     parser = argparse.ArgumentParser()
 
     parser.add_argument('input_file', help="Input file help")
@@ -38,4 +35,4 @@ def setup():
 if __name__ == '__main__':
     args = setup()
 
-    print(args['input_file'])
+    ip_parse.hello()
