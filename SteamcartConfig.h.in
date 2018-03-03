@@ -1,3 +1,0 @@
-// the configured options and settings for Tutorial
-#define STEAMCART_VERSION_MAJOR @STEAMCART_VERSION_MAJOR@
-#define STEAMCART_VERSION_MINOR @STEAMCART_VERSION_MINOR@
