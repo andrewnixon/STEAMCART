@@ -2,7 +2,7 @@
 import argparse
 
 from pathlib import Path
-from input import ip_parse
+from sc_input import ip_parse
 
 def setup():
     parser = argparse.ArgumentParser()
@@ -20,8 +20,8 @@ def setup():
     if not input_file.is_file():
         raise Exception("Input file is not file")
 
-    if not model.is_dir():
-        raise Exception("Model does not point to a directory")
+    if not model.is_file():
+        raise Exception("Model does not point to a run file")
 
     if not (args.code == 'topas' or args.code == 'gate'):
         raise Exception("Code should be 'topas' or 'gate'")
