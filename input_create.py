@@ -35,4 +35,4 @@ def setup():
 if __name__ == '__main__':
     args = setup()
 
-    ip_parse.hello()
+    #ip_parse.hello()
