@@ -6,3 +6,9 @@ Input file generator for TOPAS and Gate which takes a JSON formatted ruleset and
 - Python 3
 - Linux / OSX (untested)
 - TOPAS or Gate
+
+## Installation
+*in progress*
+
+## Usage
+*in progress*
