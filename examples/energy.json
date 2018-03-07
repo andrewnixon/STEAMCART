@@ -2,6 +2,6 @@
 	"energy": {
 		"start": 10,
 		"stop": 100,
-		"runs": 9
+		"num": 9
 	}
 }

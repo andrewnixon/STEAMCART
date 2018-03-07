@@ -7,6 +7,13 @@ Input file generator for TOPAS and Gate which takes a JSON formatted ruleset and
 - Linux / OSX (untested)
 - TOPAS or Gate
 
+## For Linux
+This has been tested on Ubuntu 17.10. Additional packages requried are:
+- pyQT5
+- Numpy
+- Scipy
+- Matplotlib
+
 ## Installation
 *in progress*
 
