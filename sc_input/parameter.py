@@ -1,11 +1,40 @@
+from enum import Enum
+import numpy as np
+
+class pType(Enum):
+    RANGED = 1
+    LISTED = 2
+
 class Parameter():
-    def __init__(self, key, dict):
+    def get_list(self, endpoint=True):
+        if self.type == pType.RANGED:
+            return np.linspace(self.start, self.stop, num=self.num, endpoint=endpoint)
+        elif self.type == pType.LISTED:
+            return self.list
+        else:
+            # not ideal.. should be a different exception
+            self.__bad_json_exception()
+
+    def ranged_parameter(self, dictionary):
+        self.type = pType.RANGED
+        self.start = dictionary['start']
+        self.stop = dictionary['stop']
+        self.num = dictionary['num']
+
+    def listed_parameter(self, dictionary):
+        self.type = pType.LISTED
+
+    def __init__(self, key, dictionary):
+        if not isinstance(dictionary, dict):
+            self.__bad_json_exception()
+
         self.key = key
-        if 'start' in dict and 'stop' in dict:
-            print("successs")
+        if 'start' in dictionary and 'stop' in dictionary:
+            self.ranged_parameter(dictionary)
+        elif 'list' in dictionary:
+            self.listed_parameter(dictionary)
+        else:
+            self.__bad_json_exception()
 
-    def ranged_parameter():
-        return
-
-    def listed_parameter():
-        return
+    def __bad_json_exception():
+        raise Exception("Likely that the JSON is not correct")
