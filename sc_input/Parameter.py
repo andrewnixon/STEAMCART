@@ -1,28 +1,28 @@
 from enum import Enum
 import numpy as np
 
-class pType(Enum):
+class _pType(Enum):
     RANGED = 1
     LISTED = 2
 
-class Parameter():
+class Parameter(object):
     def get_list(self, endpoint=True):
-        if self.type == pType.RANGED:
+        if self.type == _pType.RANGED:
             return np.linspace(self.start, self.stop, num=self.num, endpoint=endpoint)
-        elif self.type == pType.LISTED:
+        elif self.type == _pType.LISTED:
             return self.list
         else:
             # not ideal.. should be a different exception
             self.__bad_json_exception()
 
     def ranged_parameter(self, dictionary):
-        self.type = pType.RANGED
+        self.type = _pType.RANGED
         self.start = dictionary['start']
         self.stop = dictionary['stop']
         self.num = dictionary['num']
 
     def listed_parameter(self, dictionary):
-        self.type = pType.LISTED
+        self.type = _pType.LISTED
 
     def __init__(self, key, dictionary):
         if not isinstance(dictionary, dict):

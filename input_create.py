@@ -2,7 +2,7 @@
 import argparse
 
 from pathlib import Path
-from sc_input import ip_parse
+from sc_input import parse, Parameter
 
 def setup():
     parser = argparse.ArgumentParser()
@@ -35,4 +35,6 @@ def setup():
 if __name__ == '__main__':
     args = setup()
 
-    #ip_parse.hello()
+    parameters = parse.get_input_parameters(args['input_file'])
+    for parameter in parameters:
+        print(parameter.key)
