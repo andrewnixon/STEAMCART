@@ -6,6 +6,14 @@ class _pType(Enum):
     LISTED = 2
 
 class Parameter(object):
+    """Parameter from JSON for each model write
+
+    Attributes:
+        key - name of parameter being rewritten
+        type - RANGED or LISTED parameter
+
+
+    """
     def get_list(self, endpoint=True):
         if self.type == _pType.RANGED:
             return np.linspace(self.start, self.stop, num=self.num, endpoint=endpoint)
